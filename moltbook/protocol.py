@@ -23,6 +23,27 @@ class MoltbookNode:
 
     def receive_message(self, message: Message):
         self.inbox.append(message)
+        # Auto-add sender to peers if not present
+        if message.sender not in self.peers:
+            self.peers.append(message.sender)
+
+    def discover_peers(self, network: 'MoltbookNetwork'):
+        """Discover other registered agents on the network."""
+        for agent_id in network.nodes:
+            if agent_id != self.agent_id and agent_id not in self.peers:
+                self.peers.append(agent_id)
+
+class BroadcastProtocol:
+    def __init__(self, network: 'MoltbookNetwork'):
+        self.network = network
+
+    def announce_discovery(self, sender_id: str, topic: str, insight: str):
+        """Broadcasts a scientific discovery to all peers."""
+        content = {"topic": topic, "insight": insight}
+        for agent_id, node in self.network.nodes.items():
+            if agent_id != sender_id:
+                msg = Message(sender_id, agent_id, content, msg_type="discovery_announcement")
+                self.network.route_message(msg)
 
 class MoltbookNetwork:
     def __init__(self):
@@ -37,5 +58,6 @@ class MoltbookNetwork:
             return True
         return False
 
-# Global network instance
+# Global instances
 network = MoltbookNetwork()
+broadcast_engine = BroadcastProtocol(network)
