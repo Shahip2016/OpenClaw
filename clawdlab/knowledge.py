@@ -28,5 +28,25 @@ class KnowledgeDistiller:
         with open(file_path, "w") as f:
             json.dump(ki.__dict__, f, indent=4)
 
+    def get_knowledge_graph(self) -> Dict[str, Any]:
+        """Exports all distilled knowledge as a node-link graph for visualization."""
+        nodes = []
+        links = []
+        if not os.path.exists(self.store_path):
+            return {"nodes": [], "links": []}
+            
+        for filename in os.listdir(self.store_path):
+            if filename.endswith(".json"):
+                with open(os.path.join(self.store_path, filename), "r") as f:
+                    data = json.load(f)
+                    nodes.append({"id": data["topic"], "group": 1})
+                    # Simple link logic: link to 'Research Root' or based on evidence references
+                    links.append({"source": "Research Root", "target": data["topic"]})
+        
+        if nodes:
+            nodes.append({"id": "Research Root", "group": 0})
+            
+        return {"nodes": nodes, "links": links}
+
 # Global distiller
 distiller = KnowledgeDistiller()
