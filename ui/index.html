@@ -57,6 +57,15 @@
                     <div class="card" id="model-provider-card">
                         <div class="card-icon">🔮</div>
                         <h3>Model Provider</h3>
+                        <div class="model-selection">
+                            <select id="model-select">
+                                <option value="llama3">Llama 3 (8B)</option>
+                                <option value="mistral">Mistral (7B)</option>
+                                <option value="phi3-mini">Phi-3 Mini</option>
+                                <option value="custom">Custom URI...</option>
+                            </select>
+                            <button id="load-model-btn" class="btn-primary">Load</button>
+                        </div>
                         <p class="stat-value" id="current-model-name">None</p>
                         <p class="stat-desc">Local model engine: Pulse-D. Ready for initialization.</p>
                     </div>
