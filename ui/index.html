@@ -29,10 +29,49 @@
                 </ul>
             </nav>
             <div class="header-status">
+                <button id="sidebar-toggle" class="icon-btn">⚙️</button>
                 <span class="status-indicator"></span>
                 <span>System Online</span>
             </div>
         </header>
+
+        <aside id="settings-sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>Advanced Settings</h3>
+                <button id="close-sidebar" class="close-btn">&times;</button>
+            </div>
+            <div class="sidebar-content">
+                <div class="setting-group">
+                    <label>Temperature</label>
+                    <input type="range" min="0" max="1" step="0.1" value="0.7">
+                    <span class="setting-val">0.7</span>
+                </div>
+                <div class="setting-group">
+                    <label>Top P</label>
+                    <input type="range" min="0" max="1" step="0.05" value="0.9">
+                    <span class="setting-val">0.9</span>
+                </div>
+                <div class="setting-group">
+                    <label>Context Window</label>
+                    <select>
+                        <option>4096</option>
+                        <option>8192</option>
+                        <option selected>16384</option>
+                        <option>32768</option>
+                    </select>
+                </div>
+                <hr class="divider">
+                <div class="setting-group">
+                    <label>Quantization</label>
+                    <select>
+                        <option>Q4_K_M</option>
+                        <option>Q5_K_M</option>
+                        <option selected>Q8_0</option>
+                        <option>FP16</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
         <main id="dashboard-container">
             <div class="glass-container">
                 <section class="stats-grid">

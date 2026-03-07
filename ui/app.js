@@ -2,7 +2,30 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("OpenClaw UI Initialized");
     initKnowledgeGraph();
     initModelControls();
+    initSidebar();
 });
+
+function initSidebar() {
+    const toggle = document.getElementById('sidebar-toggle');
+    const close = document.getElementById('close-sidebar');
+    const sidebar = document.getElementById('settings-sidebar');
+
+    toggle.addEventListener('click', () => {
+        sidebar.classList.add('open');
+    });
+
+    close.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+    });
+
+    // Range value updates
+    const ranges = document.querySelectorAll('.setting-group input[type="range"]');
+    ranges.forEach(range => {
+        range.addEventListener('input', (e) => {
+            e.target.nextElementSibling.textContent = e.target.value;
+        });
+    });
+}
 
 function initModelControls() {
     const loadBtn = document.getElementById('load-model-btn');

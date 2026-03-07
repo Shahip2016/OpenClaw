@@ -107,6 +107,84 @@ nav li:hover {
     box-shadow: 0 0 8px #00ff88;
 }
 
+.icon-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+    margin-right: 10px;
+}
+
+.icon-btn:hover {
+    color: var(--accent-color);
+}
+
+.sidebar {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    background: rgba(5, 7, 10, 0.95);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid var(--glass-border);
+    z-index: 1000;
+    padding: 2rem;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.setting-group label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.setting-group select, 
+.setting-group input[type="range"] {
+    width: 100%;
+}
+
+.setting-val {
+    align-self: flex-end;
+    font-size: 0.75rem;
+    color: var(--accent-color);
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid var(--glass-border);
+    margin: 1rem 0;
+}
+
 #dashboard-container {
     flex: 1;
 }
