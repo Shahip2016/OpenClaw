@@ -3,7 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
     initKnowledgeGraph();
     initModelControls();
     initSidebar();
+    initModeToggle();
 });
+
+function initModeToggle() {
+    const modeSwitch = document.getElementById('mode-switch');
+    const headerStatusText = document.querySelector('.header-status span:last-child');
+    
+    modeSwitch.addEventListener('change', () => {
+        const isLocal = modeSwitch.checked;
+        if (isLocal) {
+            headerStatusText.textContent = "System Online | Local Mode";
+            console.log("Switched to Local Mode");
+        } else {
+            headerStatusText.textContent = "System Online | API Mode";
+            console.log("Switched to API Mode");
+        }
+    });
+}
 
 function initSidebar() {
     const toggle = document.getElementById('sidebar-toggle');
