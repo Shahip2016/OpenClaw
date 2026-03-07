@@ -540,6 +540,27 @@ input:checked + .slider:before {
         flex-direction: column;
         gap: 1.5rem;
         padding: 1.5rem;
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .mode-toggle-container {
+        padding-left: 0;
+        padding-top: 1rem;
+        border-left: none;
+        border-top: 1px solid var(--glass-border);
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sidebar {
+        width: 100%;
+        right: -100%;
     }
 
     .stats-grid {
@@ -549,4 +570,32 @@ input:checked + .slider:before {
     .logo h1 {
         font-size: 1.2rem;
     }
+}
+
+/* Scrollbar Polish */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Utility Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
