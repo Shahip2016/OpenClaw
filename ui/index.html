@@ -69,6 +69,28 @@
                         <p class="stat-value" id="current-model-name"><span class="status-light" id="model-status-light"></span>None</p>
                         <p class="stat-desc">Local model engine: Pulse-D. Ready for initialization.</p>
                     </div>
+                    <div class="card" id="performance-metrics-card" style="opacity: 0.5; pointer-events: none;">
+                        <div class="card-icon">⚡</div>
+                        <h3>Performance Metrics</h3>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <span class="metric-label">Throughput</span>
+                                <span class="metric-value" id="metric-tps">--</span>
+                                <span class="metric-unit">tokens/s</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Latency</span>
+                                <span class="metric-value" id="metric-latency">--</span>
+                                <span class="metric-unit">ms</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">VRAM</span>
+                                <span class="metric-value" id="metric-vram">--</span>
+                                <span class="metric-unit">GB</span>
+                            </div>
+                        </div>
+                        <p class="stat-desc">Real-time inference profiling</p>
+                    </div>
                 </section>
                 <section id="viz-section">
                     <div class="viz-header">
