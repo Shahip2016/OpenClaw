@@ -170,12 +170,54 @@ nav li:hover {
 
 #viz-section {
     flex: 1;
-    border: 1px dashed var(--glass-border);
+    border: 1px solid var(--glass-border);
     border-radius: 16px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.viz-header {
+    margin-bottom: 1.5rem;
+}
+
+.viz-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.viz-header p {
+    font-size: 0.8rem;
     color: var(--text-secondary);
+}
+
+#knowledge-graph {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+#graph-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.node {
+    fill: var(--accent-color);
+    filter: drop-shadow(0 0 5px var(--accent-color));
+}
+
+.link {
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 1;
+}
+
+.node-label {
+    fill: var(--text-secondary);
+    font-size: 10px;
+    font-family: var(--font-main);
 }
 
 #main-footer {
