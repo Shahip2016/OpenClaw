@@ -1,7 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("OpenClaw UI Initialized");
     initKnowledgeGraph();
+    initModelControls();
 });
+
+function initModelControls() {
+    const loadBtn = document.getElementById('load-model-btn');
+    const modelSelect = document.getElementById('model-select');
+    const statusLight = document.getElementById('model-status-light');
+    const modelNameDisplay = document.getElementById('current-model-name');
+    const statusDesc = document.querySelector('#model-provider-card .stat-desc');
+
+    loadBtn.addEventListener('click', () => {
+        const selectedModel = modelSelect.options[modelSelect.selectedIndex].text;
+        
+        // Start Loading
+        loadBtn.disabled = true;
+        statusLight.className = 'status-light loading';
+        modelNameDisplay.innerHTML = `<span class="status-light loading"></span>Loading...`;
+        statusDesc.textContent = `Initializing parameters for ${selectedModel}...`;
+
+        // Simulate model load time
+        setTimeout(() => {
+            loadBtn.disabled = false;
+            statusLight.className = 'status-light ready';
+            modelNameDisplay.innerHTML = `<span class="status-light ready"></span>${selectedModel}`;
+            statusDesc.textContent = `Engine: Pulse-D. Model ${selectedModel} is active and ready.`;
+        }, 1500);
+    });
+}
 
 function initKnowledgeGraph() {
     const svg = document.getElementById('graph-svg');

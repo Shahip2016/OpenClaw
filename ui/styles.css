@@ -278,6 +278,37 @@ nav li:hover {
     }
 }
 
+.status-light {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background: #4a5568; /* Idle */
+    box-shadow: 0 0 5px #4a5568;
+}
+
+.status-light.loading {
+    background: #ecc94b; /* Yellow */
+    box-shadow: 0 0 10px #ecc94b;
+    animation: statusPulse 1s infinite alternate;
+}
+
+.status-light.ready {
+    background: #48bb78; /* Green */
+    box-shadow: 0 0 10px #48bb78;
+}
+
+.status-light.error {
+    background: #f56565; /* Red */
+    box-shadow: 0 0 10px #f56565;
+}
+
+@keyframes statusPulse {
+    from { opacity: 0.5; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1.1); }
+}
+
 .logo-glow {
     animation: pulseGlow 4s infinite ease-in-out;
 }
