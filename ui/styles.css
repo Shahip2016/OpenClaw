@@ -201,6 +201,46 @@ nav li:hover {
     transform: scale(1.05);
 }
 
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+}
+
+.metric-label {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.metric-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.metric-unit {
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+}
+
+#performance-metrics-card {
+    transition: opacity 0.5s ease;
+}
+
 #viz-section {
     flex: 1;
     border: 1px solid var(--glass-border);

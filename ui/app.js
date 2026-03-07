@@ -26,8 +26,30 @@ function initModelControls() {
             statusLight.className = 'status-light ready';
             modelNameDisplay.innerHTML = `<span class="status-light ready"></span>${selectedModel}`;
             statusDesc.textContent = `Engine: Pulse-D. Model ${selectedModel} is active and ready.`;
+            
+            // Enable and start metrics
+            const metricsCard = document.getElementById('performance-metrics-card');
+            metricsCard.style.opacity = '1';
+            metricsCard.style.pointerEvents = 'all';
+            startMetricsSimulation();
         }, 1500);
     });
+}
+
+function startMetricsSimulation() {
+    const tpsEl = document.getElementById('metric-tps');
+    const latencyEl = document.getElementById('metric-latency');
+    const vramEl = document.getElementById('metric-vram');
+
+    setInterval(() => {
+        const tps = (15 + Math.random() * 10).toFixed(1);
+        const latency = (40 + Math.random() * 20).toFixed(0);
+        const vram = (4.2 + Math.random() * 0.5).toFixed(1);
+
+        tpsEl.textContent = tps;
+        latencyEl.textContent = latency;
+        vramEl.textContent = vram;
+    }, 2000);
 }
 
 function initKnowledgeGraph() {
